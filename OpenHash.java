@@ -119,6 +119,7 @@ public class OpenHash {
 		intOrigPostHash.put(origSum, postSum);
 		
 		printOp("processInt");
+		System.out.println("ye");
 	}
 	
 	
