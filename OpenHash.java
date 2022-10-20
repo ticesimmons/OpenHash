@@ -26,7 +26,7 @@ public class OpenHash {
 	private String keyForInt;
 	private int keyForStr;
 	private char key1;
-	int x;
+	public int x;
 	int y;
 	private boolean printOp = false;
 	
@@ -119,7 +119,6 @@ public class OpenHash {
 		intOrigPostHash.put(origSum, postSum);
 		
 		printOp("processInt");
-		System.out.println("ye");
 	}
 	
 	
@@ -128,8 +127,7 @@ public class OpenHash {
 		    for (int i = 0; (i) < digits.size(); i++) {       /// 10 * num + other nums
 			    resultA += (digits.get(i) * (forA));
 			    forA *= 10;
-		    }
-		   System.out.println(resultA); 
+		    } 
 		   return resultA;
 		}
 	
@@ -167,16 +165,17 @@ public class OpenHash {
 		if (strSum.length() >= 4)
 		{
 			rand(strSum.length());
-			for (int i = y; (i) <= x; i++) {
+			for (int i = 0; i < strSum.length(); i++) {
 				s.add(strSum.charAt(i));
 				System.out.println(s);
 			
 				//casts chars to to ints and adds them to a list 	
 			}
-
+			
 			rand(s.size());
-			for (int i = 0; (i) <= s.size(); i++) {
-				a.add(intPare(s.get(i)));
+			
+			for (int i = y; i <= x; i++)  { //see dev_problems.md concering this for loop
+				a.add(intPare((s.get(i) * keyGen.nextInt(1, 100))));
 				System.out.println(a);
 			}
 		} else if (strSum.length() < 4){
@@ -239,20 +238,18 @@ public class OpenHash {
 	private void rand(int size) {
 		Random r = new Random();
 		int[] ints = new int[size];
+		// makes an array of length size, with every value being equal to it's index
 		for (int i = 0; i < size; i++) {
 			ints[i] = i;
 		}
 		
-		int z = r.nextInt(size);
-		x = z;
+		//generates a random index of the ints array
+		x = r.nextInt(ints.length) - 1;
 		
-		while ((z - 3) < 1) {
-			z = r.nextInt(size);
-			x  = z - 1;
-		}
-		if (x >= 1) {
-			x -= 1;
-		}
+		if (x < 3){
+			x = 3;
+		} 
+
 		y = x - 3;
 		
 	}
