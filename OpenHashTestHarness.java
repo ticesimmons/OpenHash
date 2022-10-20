@@ -5,8 +5,7 @@ public class OpenHashTestHarness {
 	  		   System.out.println("Testing started");
 	  	
 	  		 OpenHash testSum = new OpenHash();
-	  		 testSum.setPrintOption(true);
-
+			 
 	  	     //implement after original class is largely completed
 	  	     testSum.addToHash(1);
 	  	     assert (testSum.getIntOrigSum() == 1) : "Assert (testSum.getIntOrigSum(1) == 1) failed";
@@ -26,7 +25,9 @@ public class OpenHashTestHarness {
 	  	     testSum.addToHash(12341414);
 	  	     testSum.addToHash(5121);
 	  	     
-	  	    testSum.addToHash("Test");
+
+				
+	  	     testSum.addToHash("Test");
 			 //System.out.println(testSum.x);
 	  	     testSum.addToHash("beeepis");
 	  	   	 testSum.addToHash("asdkhbfkhjfkhjf");

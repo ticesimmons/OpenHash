@@ -28,7 +28,6 @@ public class OpenHash {
 	private char key1;
 	public int x;
 	int y;
-	private boolean printOp = false;
 	
 	final char[] restKeyTable = {'Z', 'T', 'V', 'A', 'B', 'C', 'X', 'F', 'H', 'Q'};
 	final char[] key1Table = {':', '@', '!', '$', '%', '&', '^', '#', '?', '/'}; 
@@ -86,7 +85,6 @@ public class OpenHash {
 		hash.put(keyForInt, value);
 		intOrigPostHash.put(origSum, postSum);
 		
-		printOp("processInt");
 	}
 	
 	
@@ -154,7 +152,6 @@ public class OpenHash {
 		strHash.put(keyForStr, strValue);
 		strOrigPostHash.put(stringOrigSum, postSum);
 		
-		printOp("processString");
 	}
 	
 	/**
@@ -181,6 +178,12 @@ public class OpenHash {
 		processString(originalString);
 	}
 	
+
+	/**
+	 * designates indexes with which cover a random 4 digit space within an array
+	 * 
+	 * @param size length of source array
+	 */
 	private void rand(int size) {
 		Random r = new Random();
 		int[] ints = new int[size];
@@ -191,7 +194,8 @@ public class OpenHash {
 		
 		//generates a random index of the ints array
 		x = r.nextInt(ints.length) - 1;
-		
+
+		//ensures that using y will not cause an out of bounds exception to occur  
 		if (x < 3){
 			x = 3;
 		} 
@@ -201,6 +205,11 @@ public class OpenHash {
 	}
 	
 	
+	/**
+	 * an algorithm to reduce an int to an expected size
+	 * @param sum num to be reduced
+	 * @return will always return an int that is between 0 and 9
+	 */
 	private int intPare(int sum) {
 		int reSum = sum;
 		if (sum >= 10) {
@@ -231,20 +240,11 @@ public class OpenHash {
 	}
 	
 	/**
-	 * allows manual assignment of original sum
-	 * @param sum to be assigned
-	 */
-	public void setOrigSum(int sum) {
-		origSum = sum;
-	}
-	
-	/**
 	 * allows manual assignment of post process sum
 	 * @param sum to be assigned
 	 *
 	public void setPostSum(int sum) {
 		postSum = sum;
-		printOp("setPostSum");
 	}
 	*/
 	
@@ -254,7 +254,6 @@ public class OpenHash {
 	 * @return
 	 */
 	public int getIntOrigSum() {
-		printOp("getorigSum");
 		return origSum;
 	}
 	
@@ -264,29 +263,7 @@ public class OpenHash {
 	 * @return
 	 */
 	public int getIntPostSum() {
-		printOp("getPostSum");
 		return postSum;
-	}
-	
-	
-	//string versions
-	
-	/**
-	 * 
-	 * @param sum
-	 */
-	public void setOrigSum(String sum) {
-		stringOrigSum = sum;
-		printOp("setOrigSumString");
-	}
-	
-	/**
-	 * allows manual assignment of post process sum as string
-	 * @param sum to be assigned
-	 */
-	public void setPostSum(String sum) {
-		//stringPostSum = sum;
-		printOp("setPostSumString");
 	}
 	
 	/**
@@ -294,7 +271,6 @@ public class OpenHash {
 	 * @return
 	 */
 	public String getOrigSum() {
-		printOp("getOrigSumString");
 		return stringOrigSum;
 	}
 	
@@ -303,7 +279,6 @@ public class OpenHash {
 	 * @return
 	 */
 	public String getPostSum() {
-		printOp("getPostSumString");
 		return "";
 	}
 	
@@ -326,61 +301,29 @@ public class OpenHash {
 	public ArrayList<String> getOrigStrList(){
 		return origStrList;
 	}
-	
 
-	
-// section below is the program feedback section which
-// has no relevance to the main function of the program
-	
 	/**
-	 * sets whether task completion feedback is enabled
-	 * @param option
+	 * allows manual assignment of original sum
+	 * @param sum to be assigned
 	 */
-	public void setPrintOption(boolean option) {
-		printOp = option;	
-		printOp("setPrintOption");
+	public void setOrigSum(int sum) {
+		origSum = sum;
+	}
+	
+		/**
+	 * 
+	 * @param sum
+	 */
+	public void setOrigSum(String sum) {
+		stringOrigSum = sum;
 	}
 	
 	/**
-	 * if task feedback(printOp) is turned on(true), will print
-	 * feedback related to any public method that this called
-	 * used for testing
-	 * 
-	 * @param methodToPrint string name of method who's feedback will be printed
+	 * allows manual assignment of post process sum as string
+	 * @param sum to be assigned
 	 */
-	private void printOp(String methodToPrint) {
-		String s = methodToPrint;
-		
-	// if setPrintOption method called this method // if the user is turning printing on or off
-		if (s.toLowerCase() == "setprintoption") {
-			if (printOp) {
-				System.out.println("task feedback enabled");
-			} else {
-				System.out.println("task feedback disabled");
-			}
-			
-		// if this method is called by any method other than setPrintOp			
-		} else if (s.toLowerCase() != "setprintop"){
-				if (printOp = false) {
-					return;
-				} 
-				else if (s.toLowerCase() == "process"){
-					System.out.println("sum successfully processed");
-				}
-				else if (s.toLowerCase() == "setpostsum") {
-					System.out.println("post sum set to " + postSum);
-				}
-				else if (s.toLowerCase() == "setorigsum") {
-					System.out.println("original sum set to " + origSum);
-				} 
-				else if (s.toLowerCase() == "getorigsum") {
-					System.out.println("original sum set to " + origSum);
-				} 
-				else {
-					return;
-				}
-		}
-		
+	public void setPostSum(String sum) {
+		//stringPostSum = sum;
 	}
 	
 }
