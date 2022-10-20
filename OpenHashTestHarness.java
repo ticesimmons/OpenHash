@@ -4,12 +4,6 @@ import java.util.Random;
 
 public class OpenHashTestHarness {
 	
-	public static int rand(int bound) {
-		Random rand = new Random();
-		
-		return rand.nextInt(bound);
-	}
-	
 	  		public static void main(String[] args) {
 	  		   System.out.println("Testing started");
 	  	
@@ -35,7 +29,8 @@ public class OpenHashTestHarness {
 	  	     testSum.addToHash(12341414);
 	  	     testSum.addToHash(5121);
 	  	     
-	  	     testSum.addToHash("Test");
+	  	    testSum.addToHash("Test");
+			 //System.out.println(testSum.x);
 	  	     testSum.addToHash("beeepis");
 	  	   	 testSum.addToHash("asdkhbfkhjfkhjf");
 	  	     
@@ -51,11 +46,7 @@ public class OpenHashTestHarness {
 	  	     System.out.println(testSum.getOrigStrList());
 	  	     System.out.println(testSum.getHash());
 	  	     System.out.println(testSum.getStrHash());
-	  	     
-	  	     System.out.println(rand(12));
-	  	     System.out.println(rand(12));
-	  	     System.out.println(rand(12));
-	  	      
+	  	    
 	  	     System.out.println("Testing completed");
 	  		}
 		}
