@@ -115,12 +115,7 @@ public class OpenHash {
 		
 		
 		int firstProcessResult = 0;
-		int keyLength = 3;
-		int sum = 0;
 		int forA = 1;
-		char key2;
-		char key3;
-		char key4;
 		
 		origStrList.add(strSum);
 		
