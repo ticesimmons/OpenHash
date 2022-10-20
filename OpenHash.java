@@ -45,38 +45,6 @@ public class OpenHash {
 		
 	}
 	
-	/**
-	public OpenHash(int origSum) {
-		this.origSum = origSum;
-		postSum = 0;
-		stringPostSum = "";
-		stringOrigSum = "";
-	}
-	
-	public OpenHash(int origSum, int postSum) {
-		this.origSum = origSum;
-		this.postSum = postSum;
-		stringPostSum = "";
-		stringOrigSum = "";
-	}
-	
-	public OpenHash(int origSum, int postSum, String stringOrigSum) {
-		this.origSum = origSum;
-		this.postSum = postSum;
-		this.stringOrigSum = stringOrigSum;
-		stringPostSum = "";
-	}
-	
-	public OpenHash(int origSum, int postSum, String stringOrigSum, String stringPostSum) {
-		this.origSum = origSum;
-		this.postSum = postSum;
-		this.stringOrigSum = stringOrigSum;
-		this.stringPostSum = stringPostSum;
-	}
-	
-	*
-	*/
-	
 	
 	/**
 	 * generates 4 character key to hash value(sum)
@@ -187,23 +155,6 @@ public class OpenHash {
 		postSum = firstProcessResult;
 		
 		keyForStr = postSum;
-		
-		/**
-		 * 
-		key1 = key1Table[postSum];
-		key2 = restKeyTable[keyGen.nextInt(10)];
-		key3 = restKeyTable[keyGen.nextInt(10)];
-		key4 = restKeyTable[keyGen.nextInt(10)];
-		 
-		//keyForStr = key1 + "" +  key2 + "" + key3 + "" + key4;
-		
-		while (hash.containsKey(keyForStr) == true) {
-			key2 = restKeyTable[keyGen.nextInt(10)];
-			key3 = restKeyTable[keyGen.nextInt(10)];
-			key4 = restKeyTable[keyGen.nextInt(10)];
-			//keyForStr = key1 + "" +  key2 + "" + key3 + "" + key4;
-		}
-		*/
 		
 		strHash.put(keyForStr, strValue);
 		strOrigPostHash.put(stringOrigSum, postSum);
