@@ -26,8 +26,9 @@ public class OpenHash {
 	private String keyForInt;
 	private int keyForStr;
 	private char key1;
-	public int x;
-	int y;
+	private int x;
+	private int y;
+	private int some;
 	
 	final char[] restKeyTable = {'Z', 'T', 'V', 'A', 'B', 'C', 'X', 'F', 'H', 'Q'};
 	final char[] key1Table = {':', '@', '!', '$', '%', '&', '^', '#', '?', '/'}; 
@@ -40,6 +41,7 @@ public class OpenHash {
 	private ArrayList<String> origStrList = new ArrayList<>();
 	
 	
+	//constructor 
 	public OpenHash() {
 		
 	}
@@ -128,7 +130,7 @@ public class OpenHash {
 			rand(strSum.length());
 			for (int i = 0; i < strSum.length(); i++) {
 				s.add(strSum.charAt(i));
-				System.out.println(s);
+				//System.out.println(s);
 			
 				//casts chars to to ints and adds them to a list 	
 			}
@@ -136,8 +138,9 @@ public class OpenHash {
 			rand(s.size());
 			
 			for (int i = y; i <= x; i++)  { //see dev_problems.md concering this for loop
-				a.add(intPare((s.get(i) * keyGen.nextInt(1, 100))));
-				System.out.println(a);
+				some = intPare((s.get(i) * keyGen.nextInt(1, 100)));
+				a.add(some);
+				//System.out.println(a);
 			}
 		} else if (strSum.length() < 4){
 			return;
@@ -154,21 +157,6 @@ public class OpenHash {
 		
 	}
 	
-	/**
-	 * 
-	 * 
-	 * @param 
-	 * @return 
-	 *
-	public boolean verify() {
-		
-		if () {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	*/
 	
 	public void addToHash(int originalSum) {
 		processInt(originalSum);
@@ -210,7 +198,7 @@ public class OpenHash {
 	 * @param sum num to be reduced
 	 * @return will always return an int that is between 0 and 9
 	 */
-	private int intPare(int sum) {
+	public int intPare(int sum) {
 		int reSum = sum;
 		if (sum >= 10) {
 			while (sum > 10) {
@@ -324,6 +312,14 @@ public class OpenHash {
 	 */
 	public void setPostSum(String sum) {
 		//stringPostSum = sum;
+	}
+
+	public int getKeyForStr(){
+		return keyForStr;
+	}
+
+	public int getSome(){
+		return some;
 	}
 	
 }
