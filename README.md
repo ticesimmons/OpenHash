@@ -1,6 +1,6 @@
 # OpenHash
-data storage utility
+the start of a data storage utility
 
-sucks
+personal project
 
 doesn't currently support values I don't feel like dealing with yet
