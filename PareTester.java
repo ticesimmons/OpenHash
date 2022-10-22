@@ -4,6 +4,9 @@ import java.util.stream.Stream;
 
 public class PareTester {
 
+    private int totalFlags = 0;
+    private String aresult;
+
 
     private final char[] chars = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
     'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
@@ -26,6 +29,7 @@ public class PareTester {
         StringBuilder::append,
         StringBuilder::toString));
 
+        aresult = result;
         return result;
     }
     
@@ -44,6 +48,7 @@ public class PareTester {
         int eights = 0;
         int nines = 0;
         int tens = 0;
+        int moreThanTen = 0;
 	    	
 		System.out.println("initiating flag tester...");
         System.out.println("for " + generateString());
@@ -97,7 +102,7 @@ public class PareTester {
                         tens++;
                         break;
                     default:
-                        break;
+                        break;                       
 
                 }
 
@@ -106,6 +111,7 @@ public class PareTester {
 		 }
 		long estimatedTime = System.nanoTime() - startTime;
 
+        totalFlags += flags;
 		System.out.println("operation took " + (estimatedTime / 1000000) + " miliseconds");
 		System.out.println("ran " + i + " times");
 		System.out.println("counted " + flags + " flags");
@@ -120,8 +126,20 @@ public class PareTester {
         System.out.println("8s: " + eights);
         System.out.println("9s: " + nines);
         System.out.println("10s: " + tens);
+        System.out.println("10+: " + moreThanTen);
+
 
         System.out.println("...finished flag testing");
+
 	}
 
+    public int getFlags() {
+        return totalFlags;
+        
+    }
+
+    public String getResult(){
+        return aresult;
+    }
 }
+

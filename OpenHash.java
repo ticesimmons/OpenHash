@@ -29,6 +29,7 @@ public class OpenHash {
 	private int x;
 	private int y;
 	private int some;
+	private int errsum;
 	
 	final char[] restKeyTable = {'Z', 'T', 'V', 'A', 'B', 'C', 'X', 'F', 'H', 'Q'};
 	final char[] key1Table = {':', '@', '!', '$', '%', '&', '^', '#', '?', '/'}; 
@@ -125,7 +126,7 @@ public class OpenHash {
 		//algorithm
 		
 		//turns String strSum into a list of characters
-		if (strSum.length() >= 4)
+ 		if (strSum.length() >= 4)
 		{
 			rand(strSum.length());
 			for (int i = 0; i < strSum.length(); i++) {
@@ -201,16 +202,20 @@ public class OpenHash {
 	public int intPare(int sum) {
 		int reSum = sum;
 		if (sum >= 10) {
-			while (sum > 10) {
+			while (sum >= 10) {
 				if (sum % 2 == 0) {
 					sum /= 2;
-				} else if (sum % 2 == 1) {
+				} else {
 					sum += 1;
 					sum /= 2;
 				}
-				reSum = sum;
+				if (sum >= 11){
+					//System.err.println("error sum: " + sum);
+					errsum += 1;
+				}
+				reSum = sum; 
 			}
-		} else if (sum == 0 || sum >= 1 && sum < 10) {
+		} else if (sum >= 0 && sum < 10) {
 			reSum = sum;
 		} else {
 			System.out.println("algorithm currently does not support this number");
@@ -320,6 +325,10 @@ public class OpenHash {
 
 	public int getSome(){
 		return some;
+	}
+
+	public int getErrSum(){
+		return errsum;
 	}
 	
 }

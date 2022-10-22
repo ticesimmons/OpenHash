@@ -25,16 +25,27 @@ public class OpenHashTestHarness {
 	  	     testSum.addToHash(12341414);
 	  	     testSum.addToHash(5121);
 
+			PareTester tester = new PareTester();	
 
 			testSum.addToHash("Test");
-			//System.out.println(testSum.x);
-			testSum.addToHash("beeepis");
-			testSum.addToHash("asdkhbfkhjfkhjf");
+			testSum.addToHash(tester.getResult());
+			//testSum.addToHash(tester.getResult());
+			//testSum.addToHash(tester.getResult());
+			//testSum.addToHash("beeepis");
+			//testSum.addToHash("asdkhbfkhjfkhjf");
 			
-			PareTester tester = new PareTester();
+		//	PareTester tester = new PareTester();
 
-			tester.tester(3000);
-			tester.tester(3000);
+		//	tester.tester(3000);
+		//	tester.tester(3000);
+		//	tester.tester(3000);
+		//	tester.tester(3000);
+
+
+		//	System.out.println("\n total flags: " + tester.getFlags());
+		//	System.out.println("err sum: " + testSum.getErrSum());
+
+
 			//PareTester.tester(100000);
 			//PareTester.tester(100000);
 			//PareTester.tester(100000);
