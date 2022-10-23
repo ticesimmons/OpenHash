@@ -5,7 +5,7 @@ import java.util.stream.Stream;
 public class PareTester {
 
     private int totalFlags = 0;
-    private String aresult;
+    //private String aresult;
 
 
     private final char[] chars = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
@@ -29,7 +29,7 @@ public class PareTester {
         StringBuilder::append,
         StringBuilder::toString));
 
-        aresult = result;
+       // aresult = result;
         return result;
     }
     
@@ -139,7 +139,7 @@ public class PareTester {
     }
 
     public String getResult(){
-        return aresult;
+        return generateString();
     }
 }
 
