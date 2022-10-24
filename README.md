@@ -1,5 +1,5 @@
 # OpenHash
-the start of a data storage utility
+a thing
 
 personal project
 
