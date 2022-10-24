@@ -1,12 +1,13 @@
 import java.util.ArrayList;
-import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * used for general pre and post processing int verification
  * also acts as a container for sums
  * 
- * will eventually be obsolete but is a basic and quick development solution
+ * is very obsolete but is a basic and quick development solution
  * meant to minimize confusing or unclear logic errors
  * 
  * needs to be simple and have a very low chance of causing errors
@@ -34,10 +35,10 @@ public class OpenHash {
 	final char[] restKeyTable = {'Z', 'T', 'V', 'A', 'B', 'C', 'X', 'F', 'H', 'Q'};
 	final char[] key1Table = {':', '@', '!', '$', '%', '&', '^', '#', '?', '/'}; 
 	
-	private HashMap<String, Integer> hash = new HashMap<>();
-	private HashMap<Integer, String> strHash = new HashMap<>();
-	private HashMap<Integer, Integer> intOrigPostHash = new HashMap<>();
-	private HashMap<String, Integer> strOrigPostHash = new HashMap<>();
+	private ConcurrentHashMap<String, Integer> hash = new ConcurrentHashMap<>();
+	private ConcurrentHashMap<Integer, String> strHash = new ConcurrentHashMap<>();
+	private ConcurrentHashMap<Integer, Integer> intOrigPostHash = new ConcurrentHashMap<>();
+	private ConcurrentHashMap<String, Integer> strOrigPostHash = new ConcurrentHashMap<>();
 	private ArrayList<Integer> origIntList = new ArrayList<>();
 	private ArrayList<String> origStrList = new ArrayList<>();
 	
@@ -275,15 +276,15 @@ public class OpenHash {
 		return "";
 	}
 	
-	public HashMap<String, Integer> getHash() {
+	public ConcurrentHashMap<String, Integer> getHash() {
 		return hash;
 	}
 	
-	public HashMap<Integer, String> getStrHash(){
+	public ConcurrentHashMap<Integer, String> getStrHash(){
 		return strHash;
 	}
 	
-	public HashMap<Integer, Integer> getIntOrigPostHash(){
+	public ConcurrentHashMap<Integer, Integer> getIntOrigPostHash(){
 		return intOrigPostHash;
 	}
 	
