@@ -28,6 +28,7 @@ public class OpenHashTestHarness {
 			PareTester tester = new PareTester();	
 
 			testSum.addToHash("Test");
+			testSum.addToHash("Test ing");
 			testSum.addToHash(tester.getResult());
 			//testSum.addToHash(tester.getResult());
 			//testSum.addToHash(tester.getResult());

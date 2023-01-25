@@ -32,8 +32,8 @@ public class OpenHash {
 	private int some;
 	private int errsum;
 	
-	final char[] restKeyTable = {'Z', 'T', 'V', 'A', 'B', 'C', 'X', 'F', 'H', 'Q'};
-	final char[] key1Table = {':', '@', '!', '$', '%', '&', '^', '#', '?', '/'}; 
+	final char[] REST_KEY_TABLE = {'Z', 'T', 'V', 'A', 'B', 'C', 'X', 'F', 'H', 'Q'};
+	final char[] KEY_1_TABLE = {':', '@', '!', '$', '%', '&', '^', '#', '?', '/'}; 
 	
 	private ConcurrentHashMap<String, Integer> hash = new ConcurrentHashMap<>();
 	private ConcurrentHashMap<Integer, String> strHash = new ConcurrentHashMap<>();
@@ -72,17 +72,17 @@ public class OpenHash {
 		
 		postSum = firstProcessResult;
 	
-		key1 = key1Table[postSum];
-		key2 = restKeyTable[keyGen.nextInt(10)];
-		key3 = restKeyTable[keyGen.nextInt(10)];
-		key4 = restKeyTable[keyGen.nextInt(10)];
+		key1 = KEY_1_TABLE[postSum];
+		key2 = REST_KEY_TABLE[keyGen.nextInt(10)];
+		key3 = REST_KEY_TABLE[keyGen.nextInt(10)];
+		key4 = REST_KEY_TABLE[keyGen.nextInt(10)];
 		 
 		keyForInt = key1 + "" +  key2 + "" + key3 + "" + key4;
 		
 		while (hash.containsKey(keyForInt) == true) {
-			key2 = restKeyTable[keyGen.nextInt(10)];
-			key3 = restKeyTable[keyGen.nextInt(10)];
-			key4 = restKeyTable[keyGen.nextInt(10)];
+			key2 = REST_KEY_TABLE[keyGen.nextInt(10)];
+			key3 = REST_KEY_TABLE[keyGen.nextInt(10)];
+			key4 = REST_KEY_TABLE[keyGen.nextInt(10)];
 			keyForInt = key1 + "" +  key2 + "" + key3 + "" + key4;
 		}
 		
@@ -134,12 +134,13 @@ public class OpenHash {
 				s.add(strSum.charAt(i));
 				//System.out.println(s);
 			
-				//casts chars to to ints and adds them to a list 	
+				//casts chars to to ints and adds them to a list
+				
 			}
 			
 			rand(s.size());
 			
-			for (int i = y; i <= x; i++)  { //see dev_problems.md concering this for loop
+			for (int i = y; i <= x; i++)  { 
 				some = intPare((s.get(i) * keyGen.nextInt(1, 100)));
 				a.add(some);
 				//System.out.println(a);
