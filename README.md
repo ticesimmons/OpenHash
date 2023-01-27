@@ -1,6 +1,6 @@
 # OpenHash
 
-a thing
+test version of the thing, any major changes(or series of changes) to the main branch should be add here before being committed to the main branch
 
 personal project
 
