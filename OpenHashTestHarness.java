@@ -26,10 +26,28 @@ public class OpenHashTestHarness {
 	  	     testSum.addToHash(5121);
 
 			PareTester tester = new PareTester();	
+			FileFunctionality ff = new FileFunctionality();
+			FileFunctionality ff2 = new FileFunctionality();
+
 
 			testSum.addToHash("Test");
 			testSum.addToHash("Test ing");
 			testSum.addToHash(tester.getResult());
+			
+			try {
+			testSum.addToHash(ff.fileParse("FF test file 1.txt"));
+			} 
+			catch (Exception e){
+				// TODO: handle exception
+			}
+
+			try {
+				testSum.addToHash(ff2.fileParse("FF test file 2.txt"));
+				} 
+				catch (Exception e){
+					// TODO: handle exception
+				}
+
 			//testSum.addToHash(tester.getResult());
 			//testSum.addToHash(tester.getResult());
 			//testSum.addToHash("beeepis");
