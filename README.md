@@ -1,3 +1,4 @@
 # OpenHash
 
-Finding a way to utilize hash maps with checksum capabilities if possible
+messing around with hashes and maps and stuff
+
